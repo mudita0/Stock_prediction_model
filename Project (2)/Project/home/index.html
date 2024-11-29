@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stock Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .main-content {
+            min-height: calc(100vh - 56px - 60px); /* Adjust for header and footer height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo m-0">Stock<span class="logo-accent">Predictor</span></h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Screens</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Tools</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tool 1</a></li>
+                                <li><a class="dropdown-item" href="#">Tool 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div>
+                <button class="btn btn-outline-light me-2" onclick="window.location.href='../sign_log/index.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='../sign-up/index.html'">Sign up</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <div>
+            <h2>Stock analysis and screening tool for investors in India.</h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="company-search" placeholder="Search for a company">
+                <button class="btn btn-outline-secondary">&#128269;</button>
+            </div>
+            <p>Or analyse:</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../AP/index.html'">Asian Paints</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../Cipla/index.html'">Cipla</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../HDFC/index.html'">HDFC Bank</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../HUL/index.html'">Hindustan Unilever</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../Infosys/index.html'">Infosys</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../ITC/index.html'">ITC</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../ONGC/index.html'">ONGC</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../TATA/index.html'">Tata Motors</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../TCS/index.html'">TCS</button>
+                <button class="btn btn-outline-secondary" onclick="window.location.href='../Wipro/index.html'">Wipro</button>
+            </div>            
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p class="m-0">&copy; 2024 Screener Clone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

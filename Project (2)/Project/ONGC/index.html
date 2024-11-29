@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <header class="mb-4">
+        <h1>Company Dashboard</h1>
+    </header>
+
+    <main class="container">
+        <section class="company-info text-center mb-4">
+            <h2>ONGC</h2>
+            <p class="lead">Key financial metrics and company details.</p>
+        </section>
+
+        <section class="financial-summary mb-5">
+            <h3>Financial Summary</h3>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Revenue (₹ Cr)</th>
+                            <th>Net Profit (₹ Cr)</th>
+                            <th>EPS (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023</td>
+                            <td>339,600</td>
+                            <td>12,000</td>
+                            <td>34.5</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>300,000</td>
+                            <td>10,500</td>
+                            <td>29.8</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>280,000</td>
+                            <td>8,900</td>
+                            <td>25.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="charts mb-5">
+            <h3 class="text-center">Performance Charts</h3>
+            <div class="d-flex justify-content-center">
+                <canvas id="revenueChart" style="max-width: 600px;"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Company Dashboard. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Revenue (₹ Cr)',
+                    data: [280000, 300000, 339600],
+                    borderColor: '#004080',
+                    backgroundColor: 'rgba(0, 64, 128, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#004080'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#1a1a1a'
+                        },
+                        grid: {
+                            color: '#cccccc'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#1a1a1a'
+                        },
+                        grid: {
+                            color: '#cccccc'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

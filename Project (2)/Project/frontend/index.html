@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction System</title>
+    <style>
+        /* Basic styling for better appearance */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .error {
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Prediction System</h1>
+        <p>Enter a date to predict the stock price:</p>
+        <input type="date" id="dateInput" placeholder="YYYY-MM-DD">
+        <button onclick="getPrediction()">Get Prediction</button>
+        
+        <div class="result" id="result"></div>
+        <div class="error" id="error"></div>
+    </div>
+
+    <script>
+        // JavaScript to handle API requests
+        async function getPrediction() {
+            const date = document.getElementById('dateInput').value;
+
+            if (!date) {
+                document.getElementById('error').innerText = 'Please select a date.';
+                return;
+            }
+
+            // Clear any previous error or result
+            document.getElementById('error').innerText = '';
+            document.getElementById('result').innerText = 'Loading...';
+
+            try {
+                // Send a POST request to the backend (Flask API)
+                const response = await fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ date: date })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('result').innerText = 'Predicted Stock Price: $' + data.predicted_stock_price.toFixed(2);
+                } else {
+                    throw new Error(data.error || 'Error fetching prediction');
+                }
+            } catch (error) {
+                document.getElementById('result').innerText = '';
+                document.getElementById('error').innerText = error.message;
+            }
+        }
+    </script>
+</body>
+</html>
